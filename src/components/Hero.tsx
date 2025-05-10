@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectHeroData } from "../store/slices/staticDataSlice";
 
 import {
   motion,
@@ -18,20 +17,10 @@ import {
 } from "lucide-react";
 import ThreeScene from "./three/ThreeScene";
 import { useNotification } from "../hooks/useNotification";
-import one from "../assets/1.png";
-import two from "../assets/2.png";
-import three from "../assets/3.png";
-import four from "../assets/4.png";
-import five from "../assets/5.png";
-import six from "../assets/6.png";
-import seven from "../assets/7.png";
-import eight from "../assets/8.png";
-import nine from "../assets/9.png";
-
-const images = [one, two, three, four, five, six, seven, eight, nine];
+import { selectHeroData } from "../store/slices/staticDataSlice";
 
 const Hero = () => {
-  const heroData = useSelector(selectHeroData);
+  const heroData: any = useSelector(selectHeroData);
   const { notification } = useNotification();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
@@ -42,7 +31,7 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % heroData.images.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -151,7 +140,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="mt-16 flex items-center space-x-8"
             >
-              {heroData.socialLinks.map((social, index) => {
+              {heroData.socialLinks.map((social:any, index:number) => {
                 const Icon =
                   social.icon === "GitHub"
                     ? GitHub
@@ -192,7 +181,7 @@ const Hero = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#00F5A0]/10 to-[#00D9F5]/10 rounded-2xl transform scale-105 opacity-0 group-hover:opacity-100 transition-all duration-300" />
                 <img
-                  src={images[currentIndex]}
+                  src={heroData.images[currentIndex]}
                   alt={`Slide ${currentIndex}`}
                   className="w-full h-[490px] object-cover rounded-b-2xl shadow-white"
                 />

@@ -4,7 +4,8 @@ import { Menu, X, Moon, Sun, Download } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
-import { selectLinksData } from "../store/slices/staticDataSlice";
+import { selectAppData } from "../store/slices/staticDataSlice";
+
 const navLinks = [
   { name: "Home", to: "hero", offset: 0 },
   { name: "About", to: "about", offset: -80 },
@@ -18,8 +19,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { darkMode, toggleTheme } = useTheme();
-  const linksData = useSelector(selectLinksData);
-
+  const appData = useSelector(selectAppData)
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;
@@ -56,7 +56,7 @@ const Navbar = () => {
               className="relative group cursor-pointer"
             >
               <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00F5A0] to-[#00D9F5]">
-                {"< Riyan />"}
+                {appData?.logoText}
               </span>
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00F5A0] to-[#00D9F5] transition-all duration-300 group-hover:w-full" />
             </ScrollLink>
@@ -114,7 +114,7 @@ const Navbar = () => {
               </button>
 
               <a
-                href={linksData.resume}
+                href={appData.resume}
                 className="group relative px-6 py-2.5 overflow-hidden rounded-full bg-transparent border-2 border-[#00F5A0] text-[#00F5A0] font-medium transition-colors hover:text-white"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -200,7 +200,7 @@ const Navbar = () => {
                   className="px-4 pt-4"
                 >
                   <a
-                    href={linksData.resume}
+                    href={appData.resume}
                     className="group relative inline-flex items-center px-6 py-2.5 overflow-hidden rounded-full bg-transparent border-2 border-[#00F5A0] text-[#00F5A0] font-medium transition-colors hover:text-white"
                     target="_blank"
                     rel="noopener noreferrer"

@@ -86,7 +86,7 @@ const Skills = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {skillsData.categories.map((category, categoryIndex) => (
+            {skillsData.categories.map((category:any, categoryIndex:number) => (
               <motion.div
                 key={category.category}
                 initial={{ opacity: 0, y: 20 }}
@@ -105,7 +105,7 @@ const Skills = () => {
                     </h3>
 
                     <div>
-                      {category.items.map((skill, index) => (
+                      {category.items.map((skill:any, index:number) => (
                         <SkillBar
                           key={skill.name}
                           name={skill.name}

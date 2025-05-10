@@ -9,8 +9,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'Developer Portfolio',
-        short_name: 'Portfolio',
+        name: 'Riyan Portfolio',
+        short_name: 'Riyan',
         description: 'Professional portfolio showcasing development work',
         theme_color: '#00F5A0',
         background_color: '#0A192F',

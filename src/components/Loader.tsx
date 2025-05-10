@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
+import { selectAppData } from '../store/slices/staticDataSlice';
 
 const Loader = () => {
   const [progress, setProgress] = useState(0);
-  
+  const appData  = useSelector(selectAppData);
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress(prev => {
@@ -19,7 +21,7 @@ const Loader = () => {
   }, []);
   
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-white dark:bg-navy-default z-50">
+    <div className="fixed inset-0 flex items-center justify-center  dark:bg-navy-default z-50">
       <div className="w-64 flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -27,10 +29,10 @@ const Loader = () => {
           transition={{ duration: 0.5 }}
           className="text-4xl text-teal-500 dark:text-teal-default mb-8 font-bold"
         >
-          {"<Riyan />"}
+          {appData?.logoText}
         </motion.div>
         
-        <div className="w-full h-1 bg-gray-200 dark:bg-navy-light rounded-full overflow-hidden">
+        <div className="w-full h-1  dark:bg-navy-light rounded-full overflow-hidden">
           <motion.div 
             className="h-full bg-teal-500 dark:bg-teal-default"
             initial={{ width: 0 }}

@@ -1,12 +1,12 @@
 import { Github as GitHub, Linkedin, Twitter, Mail } from "lucide-react";
 import { useSelector } from "react-redux";
-import { selectFooterData } from "../store/slices/staticDataSlice";
+import { selectAppData, selectFooterData } from "../store/slices/staticDataSlice";
 import { link } from "framer-motion/client";
 
 const Footer = () => {
   const year = new Date().getFullYear();
   const footerData = useSelector(selectFooterData);
-
+  const appData = useSelector(selectAppData);
   return (
     <footer className="py-10 bg-gray-900 dark:bg-navy-dark text-white">
       <div className="container">
@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-3 gap-10">
             <div>
               <h3 className="text-xl font-bold text-white mb-4">
-                {"<Mohd. Riyan />"}
+                {appData?.logoText}
               </h3>
               <p className="text-gray-400 mb-6">
                 {footerData?.description ||
@@ -135,7 +135,7 @@ const Footer = () => {
           </div>
 
           <div className="mt-10 pt-6 border-t border-gray-800 text-center text-gray-500 text-sm">
-            <p>© {year} Mohd. Riyan All rights reserved.</p>
+            <p>© {year} {appData?.ownerName} All rights reserved.</p>
             <p className="mt-1">
               Designed & Built with <span className="text-red-500">❤</span> by
               Mohd. Riyan

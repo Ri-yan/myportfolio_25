@@ -13,15 +13,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { useSelector } from "react-redux";
-import { selectProjectsData } from "../store/slices/staticDataSlice";
-
-const projectCategories = [
-  { id: "all", label: "All Projects" },
-  { id: "web", label: "Web Apps" },
-  { id: "mobile", label: "Mobile" },
-  { id: "ux", label: "UX/UI" },
-  { id: "api", label: "API" },
-];
+import { selectAppData, selectProjectsData } from "../store/slices/staticDataSlice";
 
 const projects = [
   {
@@ -108,7 +100,7 @@ const FeaturedProject = ({
   project,
   index,
 }: {
-  project: (typeof projects)[0];
+  project:any;
   index: number;
 }) => {
   const projectRef = useRef(null);
@@ -203,7 +195,7 @@ const FeaturedProject = ({
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-wrap gap-3"
             >
-              {project.technologies.map((tech) => (
+              {project.technologies.map((tech:any) => (
                 <span
                   key={tech}
                   className="px-4 py-2 text-sm rounded-full bg-gradient-to-r from-[#00F5A0]/10 to-[#00D9F5]/10 text-[#00D9F5] font-medium backdrop-blur-sm"
@@ -250,7 +242,7 @@ const FeaturedProject = ({
   );
 };
 
-const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
+const ProjectCard = ({project}:any) => {
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, { once: true, margin: "-10%" });
 
@@ -300,7 +292,7 @@ const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
           </p>
 
           <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
+            {project.technologies.map((tech:any) => (
               <span
                 key={tech}
                 className="px-3 py-1 text-sm rounded-full bg-gradient-to-r from-[#00F5A0]/10 to-[#00D9F5]/10 text-[#00D9F5]"
@@ -320,12 +312,13 @@ const Projects = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-10%" });
   const projectData = useSelector(selectProjectsData);
+  const appData = useSelector(selectAppData);
 
-  const featuredProjects = projects.filter((project) => project.featured);
+  const featuredProjects = projectData.items.filter((project:any) => project.featured);
   const filteredProjects =
     activeCategory === "all"
-      ? projects
-      : projects.filter((project) => project.category === activeCategory);
+      ? projectData.items
+      : projectData.items.filter((project:any) => project.category === activeCategory);
 
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
@@ -367,7 +360,7 @@ const Projects = () => {
               transition={{ duration: 0.5 }}
               className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#00F5A0] to-[#00D9F5]"
             >
-              Featured Projects
+              {projectData.subtitleThree}
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -375,13 +368,13 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl text-gray-600 dark:text-gray-400"
             >
-              Explore my latest works and creative endeavors
+              {projectData.subtitle}
             </motion.p>
           </div>
 
           {/* Featured Projects */}
           <div className="mb-32">
-            {featuredProjects.map((project, index) => (
+            {featuredProjects.map((project:any, index:number) => (
               <FeaturedProject
                 key={project.id}
                 project={project}
@@ -397,11 +390,11 @@ const Projects = () => {
             transition={{ duration: 0.5 }}
           >
             <h3 className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-[#00F5A0] to-[#00D9F5]">
-              Other Noteworthy Projects
+              {projectData.subtitleTwo}
             </h3>
 
             <div className="flex overflow-x-auto mb-12 pb-4 justify-center space-x-4">
-              {projectData.categories.map((category) => (
+              {projectData.categories.map((category:any) => (
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
@@ -438,8 +431,8 @@ const Projects = () => {
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               >
                 {filteredProjects
-                  .filter((project) => !project.featured)
-                  .map((project) => (
+                  .filter((project:any) => !project.featured)
+                  .map((project:any) => (
                     <ProjectCard key={project.id} project={project} />
                   ))}
               </motion.div>
@@ -453,7 +446,7 @@ const Projects = () => {
             className="text-center mt-20"
           >
             <a
-              href="https://github.com/yourusername"
+              href={appData.githubLink}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center px-8 py-4 text-lg overflow-hidden rounded-full bg-transparent border-2 border-[#00F5A0] text-[#00F5A0] font-medium transition-colors hover:text-white"

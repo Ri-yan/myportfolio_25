@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import staticData from '../../data/static.json';
 import type { RootState } from '../index';
+import {staticData} from '../../data/static';
 
 const initialState = staticData;
 
@@ -9,14 +9,14 @@ export const staticDataSlice = createSlice({
   initialState,
   reducers: {},
 });
-export const selectLinksData = (state: RootState) => state.staticData.links;
-export const selectHeroData = (state: RootState) => state.staticData.hero;
-export const selectAboutData = (state: RootState) => state.staticData.about;
-export const selectServicesData = (state: RootState) => state.staticData.services;
-export const selectSkillsData = (state: RootState) => state.staticData.skills;
-export const selectProjectsData = (state: RootState) => state.staticData.projects;
-export const selectTestimonialsData = (state: RootState) => state.staticData.testimonials;
-export const selectContactData = (state: RootState) => state.staticData.contact;
-export const selectFooterData = (state: RootState) => state.staticData.footer;
+export const selectAppData = (state: RootState):any => state.staticData.app;
+export const selectHeroData = (state: RootState) :any  => state.staticData.hero;
+export const selectAboutData = (state: RootState) :any  => state.staticData.about;
+export const selectServicesData = (state: RootState) :any  => state.staticData.services;
+export const selectSkillsData = (state: RootState) :any  => state.staticData.skills;
+export const selectProjectsData = (state: RootState) :any  => state.staticData.projects;
+export const selectTestimonialsData = (state: RootState) :any  => state.staticData.testimonials;
+export const selectContactData = (state: RootState) :any  => state.staticData.contact;
+export const selectFooterData = (state: RootState) :any  => state.staticData.footer;
 
 export default staticDataSlice.reducer;

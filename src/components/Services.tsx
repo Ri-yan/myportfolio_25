@@ -47,7 +47,7 @@ const Services = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
             >
-              Delivering exceptional digital solutions tailored to your needs
+              {servicesData?.subtitle}
             </motion.p>
           </div>
 
