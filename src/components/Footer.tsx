@@ -1,7 +1,7 @@
 import { Github as GitHub, Linkedin, Twitter, Mail } from "lucide-react";
 import { useSelector } from "react-redux";
-import { selectAppData, selectFooterData } from "../store/slices/staticDataSlice";
 import { link } from "framer-motion/client";
+import { selectAppData, selectFooterData } from "../store/slices/staticDataSlice";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -24,7 +24,7 @@ const Footer = () => {
                 <a
                   href={
                     footerData.socialLinks.find(
-                      (link) => link.platform === "GitHub"
+                      (link:any) => link.platform === "GitHub"
                     )?.url
                   }
                   target="_blank"
@@ -37,7 +37,7 @@ const Footer = () => {
                 <a
                   href={
                     footerData.socialLinks.find(
-                      (link) => link.platform === "LinkedIn"
+                      (link:any) => link.platform === "LinkedIn"
                     )?.url
                   }
                   target="_blank"
@@ -50,7 +50,7 @@ const Footer = () => {
                 <a
                   href={
                     footerData.socialLinks.find(
-                      (link) => link.platform === "Twitter"
+                      (link:any) => link.platform === "Twitter"
                     )?.url
                   }
                   target="_blank"
@@ -63,7 +63,7 @@ const Footer = () => {
                 <a
                   href={
                     footerData.socialLinks.find(
-                      (link) => link.platform === "Email"
+                      (link:any) => link.platform === "Email"
                     )?.url
                   }
                   className="text-gray-400 hover:text-teal-default transition-colors"
@@ -79,7 +79,7 @@ const Footer = () => {
                 Quick Links
               </h3>
               <ul className="space-y-2">
-                {footerData?.quickLinks?.map((link) => {
+                {footerData?.quickLinks?.map((link:any) => {
                   return (
                     <li key={link.href}>
                       <a
