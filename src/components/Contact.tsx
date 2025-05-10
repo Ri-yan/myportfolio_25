@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { Send, Phone, MapPin, Mail, CheckCircle } from "lucide-react";
 import { useSelector } from "react-redux";
 import { selectContactData } from "../store/slices/staticDataSlice";
+import { sendEmail } from "../services/emailjsHelper";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -10,7 +11,7 @@ const Contact = () => {
   const [formStatus, setFormStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
-  const [formData, setFormData] = useState({
+  const [formData, setFormData]: any = useState({
     name: "",
     email: "",
     subject: "",
@@ -40,24 +41,32 @@ const Contact = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev: any) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus("submitting");
-
+    sendEmail(
+      formRef.current,
+      () => {
+        setFormStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      },
+      () => {
+        setFormStatus("error");
+      }
+    );
     // Simulate form submission
-    setTimeout(() => {
-      setFormStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+    // setTimeout(() => {
+    //   setFormStatus("success");
+    //   setFormData({ name: "", email: "", subject: "", message: "" });
 
-      // Reset after 5 seconds
-      setTimeout(() => setFormStatus("idle"), 5000);
-    }, 1500);
+    //   setTimeout(() => setFormStatus("idle"), 5000);
+    // }, 1500);
   };
-  const contactData = useSelector(selectContactData);
-
+  const contactData: any = useSelector(selectContactData);
+  const formRef = useRef<HTMLFormElement | null>(null);
   return (
     <section id="contact" className="section-padding">
       <div className="container">
@@ -81,7 +90,7 @@ const Contact = () => {
               className="md:col-span-2 space-y-6"
             >
               <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
-               {contactData.leftHeader}
+                {contactData.leftHeader}
               </h3>
 
               <p className="text-gray-600 dark:text-slate-light mb-6">
@@ -142,7 +151,7 @@ const Contact = () => {
             <motion.div variants={itemVariants} className="md:col-span-3">
               <div className="card p-6">
                 <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
-                {contactData.rightHeader}
+                  {contactData.rightHeader}
                 </h3>
 
                 {formStatus === "success" ? (
@@ -160,7 +169,11 @@ const Contact = () => {
                     </p>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form
+                    ref={formRef}
+                    onSubmit={handleSubmit}
+                    className="space-y-4"
+                  >
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label
