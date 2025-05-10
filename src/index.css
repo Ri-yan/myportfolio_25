@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 md:px-6 max-w-7xl mx-auto;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block;
+  }
+  
+  .section-title::after {
+    content: "";
+    @apply absolute -bottom-2 left-0 w-1/2 h-1 bg-gradient-to-r from-teal-400 to-teal-500 dark:from-[#64FFDA] dark:to-teal-400;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-teal-500 to-teal-400 dark:from-[#64FFDA] dark:to-teal-400 
+    text-white dark:text-[#0A192F] font-medium rounded-md relative overflow-hidden
+    transform hover:scale-105 hover:shadow-lg transition-all duration-300 inline-flex items-center;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-white dark:bg-[#0A192F] opacity-0 transition-opacity duration-300;
+  }
+  
+  .btn-primary:hover::before {
+    @apply opacity-20;
+  }
+  
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-teal-500 dark:border-[#64FFDA] text-teal-500 dark:text-[#64FFDA] 
+    font-medium rounded-md relative overflow-hidden transform hover:scale-105 
+    hover:shadow-lg transition-all duration-300 inline-flex items-center;
+  }
+  
+  .btn-outline::before {
+    content: '';
+    @apply absolute inset-0 bg-teal-500 dark:bg-[#64FFDA] opacity-0 transition-opacity duration-300;
+  }
+  
+  .btn-outline:hover::before {
+    @apply opacity-10;
+  }
+  
+  .card {
+    @apply bg-white/80 dark:bg-[#112240]/80 backdrop-blur-lg rounded-lg shadow-xl 
+    hover:shadow-2xl hover:scale-[1.02] transition-all duration-300;
+  }
+  
+  .glass-effect {
+    @apply bg-white/10 dark:bg-navy-light/10 backdrop-blur-md;
+  }
+}
+
+/* Animated background gradient */
+.gradient-bg {
+  background: linear-gradient(-45deg, #10B981, #0EA5E9, #6366F1, #8B5CF6);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glowing text effect */
+.glow-text {
+  text-shadow: 0 0 10px rgba(100, 255, 218, 0.5),
+               0 0 20px rgba(100, 255, 218, 0.3),
+               0 0 30px rgba(100, 255, 218, 0.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-navy-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-teal-500 dark:bg-teal-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-teal-600 dark:bg-teal-300;
+}
+
+/* Three.js canvas container */
+.canvas-container {
+  @apply fixed top-0 left-0 w-full h-screen -z-10;
+}
+
+/* Animated skill bars */
+.skill-bar {
+  animation: fillBar 1.5s ease-in-out;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Hover effect for cards */
+.hover-card {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Text gradient effect */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-teal-600 dark:from-[#64FFDA] dark:to-teal-400;
+}
+
+/* Animated border */
+.animated-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #10B981, #64FFDA);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.animated-border:hover::after {
+  transform: scaleX(1);
+}
+
+* {
+  cursor: none;
+}
