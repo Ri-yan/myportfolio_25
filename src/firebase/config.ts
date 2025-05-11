@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getMessaging, getToken, onMessage } from 'firebase/messaging';
-import { getAnalytics, isSupported as analyticsIsSupported } from 'firebase/analytics';
+import { getAnalytics,isSupported } from 'firebase/analytics';
 import {
   getAuth
 } from "firebase/auth";
@@ -42,12 +42,15 @@ export const onMessageListener = () =>
 
   });
 
-  let analytics: any = null;
+let analytics: any = null;
 
-  if (app && await analyticsIsSupported()) {
-    analytics = getAnalytics(app);
+async function enableAnalytics() {
+  if (app && await isSupported()) {
+    getAnalytics(app);
   }
-  
-  export { analytics };
+}
+enableAnalytics();
+
+export { analytics };
 
 export default app;
