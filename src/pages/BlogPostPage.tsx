@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import BlogHeader from '../components/blog/BlogHeader';
 import BlogDetail from '../components/blog/BlogDetail';
-import { getPostBySlug, getRelatedPosts, searchPosts } from '../data/blogData';
+import { getPostBySlug, getRelatedPosts, searchPosts } from '../store/slices/blogsMethods';
 
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();

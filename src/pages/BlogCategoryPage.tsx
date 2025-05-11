@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import BlogHeader from "../components/blog/BlogHeader";
 import BlogCard from "../components/blog/BlogCard";
-import { categories, getPostsByCategory } from "../data/blogData";
+import { getPostCategory, getPostsByCategory } from "../store/slices/blogsMethods";
 import { Category } from "../types/blog.types";
 
 const BlogCategoryPage: React.FC = () => {
@@ -14,7 +14,7 @@ const BlogCategoryPage: React.FC = () => {
 
   useEffect(() => {
     if (slug) {
-      const foundCategory = categories.find((cat) => cat.slug === slug);
+      const foundCategory = getPostCategory().find((cat) => cat.slug === slug);
       if (foundCategory) {
         setCategory(foundCategory);
         setPosts(getPostsByCategory(foundCategory.name));

@@ -10,7 +10,7 @@ import {
   getFeaturedPosts,
   getRecentPosts,
   searchPosts,
-} from "../data/blogData";
+} from "../store/slices/blogsMethods";
 import { useTheme } from "../context/ThemeContext";
 
 const BlogPage: React.FC = () => {

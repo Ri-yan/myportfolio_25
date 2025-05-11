@@ -1,6 +1,11 @@
 import { initializeApp } from 'firebase/app';
 import { getMessaging, getToken, onMessage } from 'firebase/messaging';
-
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -10,13 +15,14 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-const app = initializeApp(firebaseConfig);
-const messaging = getMessaging(app);
-
+const app: any = import.meta.env.VITE_FIREBASE_STAUS === 'ON' ? initializeApp(firebaseConfig) : null
+export const messaging: any = import.meta.env.VITE_FIREBASE_STAUS === 'ON' ? getMessaging(app) : null;
+export const auth: any = import.meta.env.VITE_FIREBASE_STAUS === 'ON' ? getAuth(app) : null;
+export const db: any = import.meta.env.VITE_FIREBASE_STAUS === 'ON' ? getFirestore(app) : null;
 export const requestNotificationPermission = async () => {
   try {
     const permission = await Notification.requestPermission();
-    if (permission === 'granted') {
+    if (permission === 'granted' && import.meta.env.VITE_FIREBASE_STAUS === 'ON') {
       const token = await getToken(messaging, {
         vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY
       });
@@ -29,9 +35,14 @@ export const requestNotificationPermission = async () => {
 
 export const onMessageListener = () =>
   new Promise((resolve) => {
-    onMessage(messaging, (payload) => {
-      resolve(payload);
-    });
+    if (import.meta.env.VITE_FIREBASE_STAUS === 'ON') {
+      onMessage(messaging, (payload) => {
+        resolve(payload);
+      });
+    }
+
   });
+
+
 
 export default app;

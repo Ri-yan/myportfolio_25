@@ -78,9 +78,9 @@ const Contact = () => {
           className="max-w-6xl mx-auto"
         >
           <motion.div variants={itemVariants} className="text-center mb-12">
-            <h2 className="section-title">{contactData.title}</h2>
+            <h2 className="section-title">{contactData?.title}</h2>
             <p className="text-gray-600 dark:text-slate-light mt-6">
-              {contactData.subtitle}
+              {contactData?.subtitle}
             </p>
           </motion.div>
 
@@ -90,11 +90,11 @@ const Contact = () => {
               className="md:col-span-2 space-y-6"
             >
               <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
-                {contactData.leftHeader}
+                {contactData?.leftHeader}
               </h3>
 
               <p className="text-gray-600 dark:text-slate-light mb-6">
-                {contactData.info.description}{" "}
+                {contactData?.info.description}{" "}
               </p>
 
               <div className="space-y-4">
@@ -107,7 +107,7 @@ const Contact = () => {
                       Location
                     </h4>
                     <p className="text-gray-600 dark:text-slate-light">
-                      {contactData.info.location}
+                      {contactData?.info.location}
                     </p>
                   </div>
                 </div>
@@ -121,10 +121,10 @@ const Contact = () => {
                       Email
                     </h4>
                     <a
-                      href={`mailto:${contactData.info.email}`}
+                      href={`mailto:${contactData?.info.email}`}
                       className="text-gray-600 dark:text-slate-light hover:text-teal-500 dark:hover:text-teal-default transition-colors"
                     >
-                      {contactData.info.email}
+                      {contactData?.info.email}
                     </a>
                   </div>
                 </div>
@@ -138,10 +138,10 @@ const Contact = () => {
                       Phone
                     </h4>
                     <a
-                      href={`tel:${contactData.info.email}`}
+                      href={`tel:${contactData?.info.email}`}
                       className="text-gray-600 dark:text-slate-light hover:text-teal-500 dark:hover:text-teal-default transition-colors"
                     >
-                      {contactData.info.phone}
+                      {contactData?.info.phone}
                     </a>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ const Contact = () => {
             <motion.div variants={itemVariants} className="md:col-span-3">
               <div className="card p-6">
                 <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
-                  {contactData.rightHeader}
+                  {contactData?.rightHeader}
                 </h3>
 
                 {formStatus === "success" ? (

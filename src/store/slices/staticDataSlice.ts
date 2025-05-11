@@ -1,22 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '../index';
-import {staticData} from '../../data/static';
+import { staticData } from '../../data/static';
+import { staticDemoData } from '../../data/static.demo';
 
-const initialState = staticData;
+type StaticMode = 'demo' | 'live';
+const getMode = (): StaticMode => import.meta.env.VITE_MODE === 'demo' ? 'demo' : 'live';
+
+const initialState = {
+  live: staticData,
+  demo: staticDemoData,
+};
 
 export const staticDataSlice = createSlice({
   name: 'staticData',
   initialState,
   reducers: {},
 });
-export const selectAppData = (state: RootState):any => state.staticData.app;
-export const selectHeroData = (state: RootState) :any  => state.staticData.hero;
-export const selectAboutData = (state: RootState) :any  => state.staticData.about;
-export const selectServicesData = (state: RootState) :any  => state.staticData.services;
-export const selectSkillsData = (state: RootState) :any  => state.staticData.skills;
-export const selectProjectsData = (state: RootState) :any  => state.staticData.projects;
-export const selectTestimonialsData = (state: RootState) :any  => state.staticData.testimonials;
-export const selectContactData = (state: RootState) :any  => state.staticData.contact;
-export const selectFooterData = (state: RootState) :any  => state.staticData.footer;
+
+const getStaticData = (state: RootState) => state.staticData[getMode()];
+
+export const selectAppData = (state: RootState) => getStaticData(state).app;
+export const selectHeroData = (state: RootState) => getStaticData(state).hero;
+export const selectAboutData = (state: RootState) => getStaticData(state).about;
+export const selectServicesData = (state: RootState) => getStaticData(state).services;
+export const selectSkillsData = (state: RootState) => getStaticData(state).skills;
+export const selectProjectsData = (state: RootState) => getStaticData(state).projects;
+export const selectTestimonialsData = (state: RootState) => getStaticData(state).testimonials;
+export const selectContactData = (state: RootState) => getStaticData(state).contact;
+export const selectFooterData = (state: RootState) => getStaticData(state).footer;
 
 export default staticDataSlice.reducer;

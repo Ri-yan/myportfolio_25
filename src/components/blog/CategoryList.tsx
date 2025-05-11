@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { categories } from '../../data/blogData';
+import { getPostCategory } from '../../store/slices/blogsMethods';
 
 const CategoryList: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const CategoryList: React.FC = () => {
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        {categories.map((category, index) => (
+        {getPostCategory().map((category, index) => (
           <motion.div
             key={category.id}
             initial={{ opacity: 0, y: 20 }}

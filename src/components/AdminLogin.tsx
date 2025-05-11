@@ -1,17 +1,12 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
-  getAuth,
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import { getMessaging, getToken } from "firebase/messaging";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
-import app from "../firebase/config";
+import {  getToken } from "firebase/messaging";
+import {  doc, setDoc } from "firebase/firestore";
+import app, { auth, db, messaging } from "../firebase/config";
 import { useNavigate } from "react-router-dom";
-
-const auth = getAuth(app);
-const db = getFirestore(app);
-const messaging = getMessaging(app);
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");

@@ -138,7 +138,7 @@ const Footer = () => {
             <p>© {year} {appData?.ownerName} All rights reserved.</p>
             <p className="mt-1">
               Designed & Built with <span className="text-red-500">❤</span> by
-              Mohd. Riyan
+              {import.meta.env.VITE_OWNER_NAME}
             </p>
           </div>
         </div>

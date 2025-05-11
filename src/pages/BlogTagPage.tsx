@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Tag } from 'lucide-react';
 import BlogHeader from '../components/blog/BlogHeader';
 import BlogCard from '../components/blog/BlogCard';
-import { getPostsByTag, searchPosts } from '../data/blogData';
+import { getPostsByTag, searchPosts } from '../store/slices/blogsMethods';
 
 const BlogTagPage: React.FC = () => {
   const { tag } = useParams<{ tag: string }>();
