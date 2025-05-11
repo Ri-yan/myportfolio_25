@@ -7,6 +7,19 @@ import six from "../assets/6.png";
 import seven from "../assets/7.png";
 import eight from "../assets/8.png";
 import nine from "../assets/9.png";
+
+import activio from "../assets/projects/activio.png";
+import benefitwise from "../assets/projects/benefitwise.png";
+import bsd from "../assets/projects/bsd.png"
+import bsblogs from "../assets/projects/bsblogs.png"
+
+import maadvt from "../assets/projects/maadvt.png"
+import nexgenai from "../assets/projects/nexgenai.png"
+import notesapp from "../assets/projects/notesapp.png"
+import pizzasio from "../assets/projects/pizzasio.png"
+import tictactoe from "../assets/projects/tictactoe.png"
+
+
 const github = "https://github.com/ri-yan";
 const linkedin = "https://linkedin.com/in/riyan08";
 const twitter = "https://twitter.com/yourusername";
@@ -277,8 +290,121 @@ export const staticData: any = {
       },
     ],
     items: [
+
       {
-        id: 1,
+        id: 7,
+        title: "MA Advertising",
+        description:
+          "A comprehensive collection of reusable UI components with customization options.",
+        image:
+          maadvt,
+        technologies: ["React", "Tailwind", "Styled Components"],
+        github: "https://github.com/yourusername/project-6",
+        demo: "https://maads-demo.netlify.app/",
+        category: "ux",
+        featured: true,
+      },
+      {
+        id: 8,
+        title: "Nextgenai",
+        description:
+          "A comprehensive collection of reusable UI components with customization options.",
+        image:
+          nexgenai,
+        technologies: ["React", "Tailwind", "Styled Components"],
+        github: "https://github.com/yourusername/project-6",
+        demo: "https://nextgenai-demo.netlify.app/",
+        category: "ux",
+        featured: true,
+      },
+      {
+        id: 9,
+        title: "TicTacToe",
+        description:
+          "A comprehensive collection of reusable UI components with customization options.",
+        image:
+          tictactoe,
+        technologies: ["React", "Tailwind", "Styled Components"],
+        github: "https://github.com/yourusername/project-6",
+        demo: "https://ticckacc.netlify.app/",
+        category: "ux",
+        featured: false,
+      },
+      {
+        id: 10,
+        title: "Activio",
+        description:
+          "A comprehensive collection of reusable UI components with customization options.",
+        image:
+          activio,
+        technologies: ["React", "Tailwind", "Styled Components"],
+        github: "https://github.com/yourusername/project-6",
+        demo: "https://activio-demo.netlify.app/",
+        category: "ux",
+        featured: true,
+      },
+      {
+        id: 11,
+        title: "BsBlogs",
+        description:
+          "A comprehensive collection of reusable UI components with customization options.",
+        image:bsblogs,
+        technologies: ["React", "Tailwind", "Styled Components"],
+        github: "https://github.com/yourusername/project-6",
+        demo: "http://bsblogs.netlify.app/",
+        category: "ux",
+        featured: false,
+      },
+      {
+        id: 12,
+        title: "BloodSugar Diary",
+        description:
+          "A comprehensive collection of reusable UI components with customization options.",
+        image:bsd,
+        technologies: ["React", "Tailwind", "Styled Components"],
+        github: "https://github.com/yourusername/project-6",
+        demo: "https://bloodsugar-diary.web.app/",
+        category: "ux",
+        featured: false,
+      },
+      {
+        id: 12,
+        title: "Pizzasio",
+        description:
+          "A comprehensive collection of reusable UI components with customization options.",
+        image:pizzasio,
+        technologies: ["React", "Tailwind", "Styled Components"],
+        github: "https://github.com/yourusername/project-6",
+        demo: "https://pizzasio3.netlify.app",
+        category: "ux",
+        featured: false,
+      },
+      {
+        id: 12,
+        title: "Notes App",
+        description:
+          "A comprehensive collection of reusable UI components with customization options.",
+        image: notesapp,
+        technologies: ["React", "Tailwind", "Styled Components"],
+        github: "https://github.com/yourusername/project-6",
+        demo: "https://notesapp1080.netlify.app/",
+        category: "ux",
+        featured: false,
+      },
+      {
+        id: 13,
+        title: "benefitwise",
+        description:
+          "A comprehensive collection of reusable UI components with customization options.",
+        image:benefitwise,
+        technologies: ["React", "Tailwind", "Styled Components"],
+        github: "https://github.com/yourusername/project-6",
+        demo: "https://landing-page-mobile-responsive.netlify.app/",
+        category: "ux",
+        featured: false,
+      },
+      {
+        id: 14,
         title: "E-Commerce Platform",
         description:
           "A full-featured e-commerce platform with product management, user authentication, and payment processing.",
@@ -288,10 +414,10 @@ export const staticData: any = {
         github: "https://github.com/yourusername/project-1",
         demo: "https://project-1.example.com",
         category: "web",
-        featured: true,
+        featured: false,
       },
       {
-        id: 2,
+        id: 15,
         title: "Task Management App",
         description:
           "A collaborative task management application with real-time updates, team management, and analytics.",
@@ -301,10 +427,10 @@ export const staticData: any = {
         github: "https://github.com/yourusername/project-2",
         demo: "https://project-2.example.com",
         category: "web",
-        featured: true,
+        featured: false,
       },
       {
-        id: 3,
+        id: 16,
         title: "Weather Dashboard",
         description:
           "A weather forecasting application that provides detailed weather information for any location.",
@@ -317,7 +443,7 @@ export const staticData: any = {
         featured: false,
       },
       {
-        id: 4,
+        id: 17,
         title: "Social Media Mobile App",
         description:
           "A cross-platform mobile application for social media interaction with features like posts, comments, and messaging.",
@@ -327,10 +453,10 @@ export const staticData: any = {
         github: "https://github.com/yourusername/project-4",
         demo: "https://project-4.example.com",
         category: "mobile",
-        featured: true,
+        featured: false,
       },
       {
-        id: 5,
+        id: 18,
         title: "RESTful API Service",
         description:
           "A robust API service for data processing and integration with third-party systems.",
@@ -343,7 +469,7 @@ export const staticData: any = {
         featured: false,
       },
       {
-        id: 6,
+        id: 19,
         title: "UI Component Library",
         description:
           "A comprehensive collection of reusable UI components with customization options.",
