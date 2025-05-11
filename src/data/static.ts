@@ -25,6 +25,20 @@ const github = "https://github.com/ri-yan";
 const linkedin = "https://linkedin.com/in/riyan08";
 const twitter = "https://twitter.com/yourusername";
 const email = "mriyan0801@gmail.com";
+function getYearsSince() {
+  const start = new Date(2022, 3); // April 2022 (month is 0-indexed: 3 = April)
+  const now = new Date();
+
+  let years = now.getFullYear() - start.getFullYear();
+
+  // If the current month is before April, subtract one year
+  if (now.getMonth() < 3) {
+    years--;
+  }
+
+  return years;
+}
+
 export const staticData: any = {
   app: {
     logoText: "< Riyan />",
@@ -101,7 +115,7 @@ export const staticData: any = {
       "Here you'll find more information about me, what I do, and my current skills mostly in terms of programming and technology.",
     introTitle: "Get to know me!",
     intro: [
-      "I'm a <span class='text-teal-500 dark:text-teal-default font-medium'>Full Stack Developer</span> building robust and user-friendly web applications that solve real-world problems. I enjoy creating software that is both functional and visually appealing.",
+      `I'm a <span class='text-teal-500 dark:text-teal-default font-medium'>Full Stack Developer</span> with ${getYearsSince()} years of experience in building robust and user-friendly web applications that solve real-world problems. I enjoy creating software that is both functional and visually appealing.`,
       "I specialize in developing full-stack applications using modern technologies. My passion lies in designing efficient and scalable backend systems, as well as crafting engaging and intuitive user interfaces.",
       "In addition to my development work, I'm also available for <span class='text-teal-500 dark:text-teal-default font-medium'>freelance projects</span> and open to collaboration opportunities. If you have a project in mind, feel free to reach out!",
     ],
