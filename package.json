@@ -8,7 +8,8 @@
     "start": "vite --open",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build-prod": "vite build -- --mode production"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

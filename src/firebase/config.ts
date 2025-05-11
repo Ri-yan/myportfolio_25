@@ -1,11 +1,10 @@
 import { initializeApp } from 'firebase/app';
 import { getMessaging, getToken, onMessage } from 'firebase/messaging';
+import { getAnalytics, isSupported as analyticsIsSupported } from 'firebase/analytics';
 import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
+  getAuth
 } from "firebase/auth";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -43,6 +42,12 @@ export const onMessageListener = () =>
 
   });
 
+  let analytics: any = null;
 
+  if (app && await analyticsIsSupported()) {
+    analytics = getAnalytics(app);
+  }
+  
+  export { analytics };
 
 export default app;
