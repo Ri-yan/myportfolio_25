@@ -5,6 +5,7 @@ import { useTheme } from "../context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
 import { selectAppData } from "../store/slices/staticDataSlice";
+import { useNavigate } from "react-router-dom";
 
 const navLinks = [
   { name: "Home", to: "hero", offset: 0 },
@@ -12,6 +13,7 @@ const navLinks = [
   { name: "Skills", to: "skills", offset: -80 },
   { name: "Services", to: "services", offset: -80 },
   { name: "Projects", to: "projects", offset: -80 },
+  { name: "Blogs", to: "/blog", flag: "blog" },
   { name: "Contact", to: "contact", offset: -80 },
 ];
 
@@ -19,7 +21,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { darkMode, toggleTheme } = useTheme();
-  const appData = useSelector(selectAppData)
+  const appData = useSelector(selectAppData);
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;
@@ -41,8 +44,7 @@ const Navbar = () => {
       }`}
     >
       <nav className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-       <div className="flex flex-wrap items-center justify-between w-full">
-
+        <div className="flex flex-wrap items-center justify-between w-full">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -72,19 +74,29 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                 >
-                  <ScrollLink
-                    to={link.to}
-                    spy={true}
-                    smooth={true}
-                    offset={link.offset}
-                    duration={500}
-                    className="relative group cursor-pointer"
-                  >
-                    <span className="text-gray-600 dark:text-gray-300 transition-colors group-hover:text-[#00F5A0]">
+                  {link.flag === "blog" ? (
+                    <span
+                      onClick={() => navigate(link.to)}
+                      className="relative group cursor-pointer text-gray-600 dark:text-gray-300 hover:text-[#00F5A0] transition-colors"
+                    >
                       {link.name}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00F5A0] transition-all duration-300 group-hover:w-full" />
                     </span>
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00F5A0] transition-all duration-300 group-hover:w-full" />
-                  </ScrollLink>
+                  ) : (
+                    <ScrollLink
+                      to={link.to}
+                      spy={true}
+                      smooth={true}
+                      offset={link.offset}
+                      duration={500}
+                      className="relative group cursor-pointer"
+                    >
+                      <span className="text-gray-600 dark:text-gray-300 group-hover:text-[#00F5A0] transition-colors">
+                        {link.name}
+                      </span>
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00F5A0] transition-all duration-300 group-hover:w-full" />
+                    </ScrollLink>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -179,17 +191,29 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: i * 0.1 }}
                   >
-                    <ScrollLink
-                      to={link.to}
-                      spy={true}
-                      smooth={true}
-                      offset={link.offset}
-                      duration={500}
-                      onClick={() => setIsOpen(false)}
-                      className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-[#00F5A0] transition-colors"
-                    >
-                      {link.name}
-                    </ScrollLink>
+                    {link.flag === "blog" ? (
+                      <span
+                        onClick={() => {
+                          navigate(link.to);
+                          setIsOpen(false);
+                        }}
+                        className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-[#00F5A0] transition-colors cursor-pointer"
+                      >
+                        {link.name}
+                      </span>
+                    ) : (
+                      <ScrollLink
+                        to={link.to}
+                        spy={true}
+                        smooth={true}
+                        offset={link.offset}
+                        duration={500}
+                        onClick={() => setIsOpen(false)}
+                        className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-[#00F5A0] transition-colors"
+                      >
+                        {link.name}
+                      </ScrollLink>
+                    )}
                   </motion.div>
                 ))}
 

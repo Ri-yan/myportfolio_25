@@ -14,7 +14,7 @@ import Loader from "./components/Loader";
 import { ThemeProvider } from "./context/ThemeContext";
 import MouseContextProvider, { MouseContext } from "./context/mouse-context";
 import DotRing from "./components/DotRing";
-
+import BlogRoutes from "./routes/BlogRoutes";
 import AdminLogin from "./components/AdminLogin";
 
 function App() {
@@ -80,6 +80,7 @@ function App() {
               }
             />
             <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/blog/*" element={<BlogRoutes />} />
           </Routes>
         </ThemeProvider>
       </MouseContextProvider>

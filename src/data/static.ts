@@ -18,6 +18,7 @@ import nexgenai from "../assets/projects/nexgenai.png"
 import notesapp from "../assets/projects/notesapp.png"
 import pizzasio from "../assets/projects/pizzasio.png"
 import tictactoe from "../assets/projects/tictactoe.png"
+import developnators from "../assets/projects/developnators.png"
 
 
 const github = "https://github.com/ri-yan";
@@ -138,9 +139,9 @@ export const staticData: any = {
     items: [
       {
         icon: "Palette",
-        title: "Graphic Design",
+        title: "System Design",
         description:
-          "Creating stunning visual assets and brand identities that capture attention and communicate your message effectively.",
+          "Designing robust, scalable backend systems that power your application's core functionality.",
         gradient: "from-[#FF0080] to-[#7928CA]",
       },
       {
@@ -151,10 +152,10 @@ export const staticData: any = {
         gradient: "from-[#7928CA] to-[#FF0080]",
       },
       {
-        icon: "Layers",
-        title: "UI/UX Design",
+        icon: "Megaphone",
+        title: "Backend Development",
         description:
-          "Designing intuitive interfaces and seamless user experiences that delight and engage your audience.",
+          "Building robust, scalable backend systems that power your application's core functionality.",
         gradient: "from-[#00F5A0] to-[#00D9F5]",
       },
       {
@@ -166,18 +167,19 @@ export const staticData: any = {
       },
       {
         icon: "LineChart",
-        title: "Business Analysis",
+        title: "Agile Planning",
         description:
-          "Providing strategic insights and data-driven solutions to help your business grow and succeed.",
+          "Providing strategic insights and data-driven solutions to help your project grow, scale, and succeed.",
         gradient: "from-[#7928CA] to-[#FF0080]",
       },
       {
-        icon: "Megaphone",
-        title: "Digital Marketing",
+        icon: "Layers",
+        title: "Mobile Development",
         description:
-          "Implementing effective digital marketing strategies to increase your online presence and reach.",
+          "Creating cross-platform mobile applications that deliver seamless user experiences on both iOS and Android devices.",
         gradient: "from-[#00F5A0] to-[#00D9F5]",
       },
+
     ],
   },
   skills: {
@@ -193,20 +195,24 @@ export const staticData: any = {
             level: 90,
           },
           {
-            name: "Next.js",
+            name: "React Native",
             level: 85,
+          },
+          {
+            name: "Angular",
+            level: 80,
           },
           {
             name: "TypeScript",
             level: 90,
           },
           {
-            name: "Vue.js",
-            level: 80,
+            name: "Bootstrap",
+            level: 85,
           },
           {
             name: "TailwindCSS",
-            level: 85,
+            level: 80,
           },
         ],
       },
@@ -214,23 +220,19 @@ export const staticData: any = {
         category: "Backend",
         items: [
           {
-            name: "Node.js",
+            name: ".Net Core",
             level: 90,
           },
           {
-            name: "Express",
-            level: 85,
-          },
-          {
-            name: "Python",
+            name: "Node.js",
             level: 80,
           },
           {
-            name: "Django",
+            name: "Express",
             level: 75,
           },
           {
-            name: "GraphQL",
+            name: ".Net Mvc",
             level: 70,
           },
         ],
@@ -239,16 +241,16 @@ export const staticData: any = {
         category: "Database",
         items: [
           {
-            name: "MongoDB",
+            name: "SQL Server",
             level: 85,
           },
           {
             name: "PostgreSQL",
-            level: 80,
+            level: 70,
           },
           {
             name: "Redis",
-            level: 75,
+            level: 70,
           },
           {
             name: "MySQL",
@@ -257,6 +259,61 @@ export const staticData: any = {
           {
             name: "Firebase",
             level: 85,
+          },
+        ],
+      },
+      {
+        category: "Cloud",
+        items: [
+          {
+            name: "Azure",
+            level: 70,
+          },
+          {
+            name: "Google Cloud",
+            level: 70,
+          },
+          {
+            name: "Firebase",
+            level: 80,
+          }
+        ],
+      },
+      {
+        category: "AI & ML",
+        items: [
+          {
+            name: "Vertex AI",
+            level: 70,
+          },
+          {
+            name: "ChatGPT",
+            level: 70,
+          }
+        ],
+      },
+      {
+        category: "Tools & Technologies",
+        items: [
+          {
+            name: "Visul Studio Code",
+            level: 85,
+          },
+          {
+            name: "Visual Studio",
+            level: 80,
+          },
+          {
+            name: "Git",
+            level: 80,
+          },
+          {
+            name: "Azure Board",
+            level: 80,
+          },
+          {
+            name: "Jira",
+            level: 80,
           },
         ],
       },
@@ -290,16 +347,28 @@ export const staticData: any = {
       },
     ],
     items: [
-
+      {
+        id: 5,
+        title: "DevelopNators",
+        description:
+          "A platform for developers to connect, collaborate, and grow their careers.",
+        image:
+          developnators,
+        technologies: ["React", "Tailwind", "Styled Components", "Vite", "Firebase"],
+        github: "https://github.com/ri-yan",
+        demo: "https://developnators.com",
+        category: "web",
+        featured: true,
+      },
       {
         id: 7,
         title: "MA Advertising",
         description:
-          "A comprehensive collection of reusable UI components with customization options.",
+          "An adverting agency website with a simple and intuitive interface.",
         image:
           maadvt,
-        technologies: ["React", "Tailwind", "Styled Components"],
-        github: "https://github.com/yourusername/project-6",
+        technologies: ["React", "Tailwind", "Styled Components", "Vite", "Firebase"],
+        github: "https://github.com/ri-yan",
         demo: "https://maads-demo.netlify.app/",
         category: "ux",
         featured: true,
@@ -308,97 +377,97 @@ export const staticData: any = {
         id: 8,
         title: "Nextgenai",
         description:
-          "A comprehensive collection of reusable UI components with customization options.",
+          "AI farming company website with a simple and intuitive interface.",
         image:
           nexgenai,
-        technologies: ["React", "Tailwind", "Styled Components"],
-        github: "https://github.com/yourusername/project-6",
+        technologies: ["React", "React Native", ".Net Core", "Firebase", "Sql Server", "Tailwind", "Styled Components", "Vite"],
+        github: "https://github.com/ri-yan",
         demo: "https://nextgenai-demo.netlify.app/",
-        category: "ux",
+        category: "mobile",
         featured: true,
       },
       {
         id: 9,
         title: "TicTacToe",
         description:
-          "A comprehensive collection of reusable UI components with customization options.",
+          "Fun to play Tic Tac Toe game with a simple and intuitive interface.",
         image:
           tictactoe,
         technologies: ["React", "Tailwind", "Styled Components"],
-        github: "https://github.com/yourusername/project-6",
+        github: "https://github.com/ri-yan",
         demo: "https://ticckacc.netlify.app/",
-        category: "ux",
+        category: "web",
         featured: false,
       },
       {
         id: 10,
         title: "Activio",
         description:
-          "A comprehensive collection of reusable UI components with customization options.",
+          "A class booking and management system for educational institutions.",
         image:
           activio,
-        technologies: ["React", "Tailwind", "Styled Components"],
-        github: "https://github.com/yourusername/project-6",
+        technologies: ["Angular", ".Net Core", "MongoDB", "Sql Server", "Tailwind", "Styled Components"],
+        github: "https://github.com/ri-yan",
         demo: "https://activio-demo.netlify.app/",
-        category: "ux",
+        category: "web",
         featured: true,
       },
       {
         id: 11,
         title: "BsBlogs",
         description:
-          "A comprehensive collection of reusable UI components with customization options.",
-        image:bsblogs,
-        technologies: ["React", "Tailwind", "Styled Components"],
-        github: "https://github.com/yourusername/project-6",
+          "Subpart of blood sugar diary, displaying a list of healh related blog posts.",
+        image: bsblogs,
+        technologies: ["React", "Bootstrap", "Styled Components"],
+        github: "https://github.com/ri-yan",
         demo: "http://bsblogs.netlify.app/",
-        category: "ux",
+        category: "web",
         featured: false,
       },
       {
         id: 12,
         title: "BloodSugar Diary",
         description:
-          "A comprehensive collection of reusable UI components with customization options.",
-        image:bsd,
-        technologies: ["React", "Tailwind", "Styled Components"],
-        github: "https://github.com/yourusername/project-6",
+          "A web app for tracking blood sugar levels, medications, and diet.",
+        image: bsd,
+        technologies: ["React", "Bootstrap", "Styled Components"],
+        github: "https://github.com/ri-yan",
         demo: "https://bloodsugar-diary.web.app/",
-        category: "ux",
+        category: "web",
         featured: false,
       },
       {
-        id: 12,
+        id: 20,
         title: "Pizzasio",
         description:
           "A comprehensive collection of reusable UI components with customization options.",
-        image:pizzasio,
-        technologies: ["React", "Tailwind", "Styled Components"],
-        github: "https://github.com/yourusername/project-6",
+        image: pizzasio,
+        technologies: ["React", "Bootstrap", "MongoDB", "Express", "Styled Components"],
+        github: "https://github.com/ri-yan",
         demo: "https://pizzasio3.netlify.app",
-        category: "ux",
+        category: "web",
         featured: false,
       },
       {
-        id: 12,
+        id: 21,
         title: "Notes App",
         description:
-          "A comprehensive collection of reusable UI components with customization options.",
+          "A notes pwa app with features like creating, editing, and deleting notes.",
         image: notesapp,
-        technologies: ["React", "Tailwind", "Styled Components"],
-        github: "https://github.com/yourusername/project-6",
+        technologies: ["React", "Bootstrap", "Styled Components"],
+        github: "https://github.com/ri-yan",
         demo: "https://notesapp1080.netlify.app/",
-        category: "ux",
+        category: "mobile",
         featured: false,
       },
       {
         id: 13,
-        title: "benefitwise",
+        title: "BenefitWise",
         description:
-          "A comprehensive collection of reusable UI components with customization options.",
-        image:benefitwise,
-        technologies: ["React", "Tailwind", "Styled Components"],
-        github: "https://github.com/yourusername/project-6",
+          "My first assignment for an opportunity to work on a real-world project.",
+        image: benefitwise,
+        technologies: ["React", "Bootstrap", "Styled Components"],
+        github: "https://github.com/ri-yan",
         demo: "https://landing-page-mobile-responsive.netlify.app/",
         category: "ux",
         featured: false,
@@ -476,7 +545,7 @@ export const staticData: any = {
         image:
           "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         technologies: ["React", "Storybook", "Styled Components"],
-        github: "https://github.com/yourusername/project-6",
+        github: "https://github.com/ri-yan",
         demo: "https://project-6.example.com",
         category: "ux",
         featured: false,
@@ -520,7 +589,7 @@ export const staticData: any = {
   contact: {
     title: "Get In Touch",
     leftHeader: "Contact Information",
-    rightHeader: "Send Me a Message",
+    rightHeader: "Let 's Work Together", // or "Send Me a Message",
     subtitle: "Feel free to contact me for any project or collaboration",
     info: {
       description:
